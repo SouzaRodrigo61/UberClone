@@ -5,13 +5,20 @@
 //  Created by Rodrigo Santos on 27/09/21.
 //
 
-import Foundation
+import Combine
 import UIKit
 
 final class MainViewController: UIViewController, Bindable {
     
     // MARK: - Variables
     var viewModel: MainViewModel!
+    private let logginTrigger = PassthroughSubject<Void, Never>()
+    
+    private var input: MainViewModel.Input!
+    private var output: MainViewModel.Output!
+    
+    private let cancelBag = CancelBag()
+    private var bindings = Set<AnyCancellable>()
     
     
     // MARK: - Properties
@@ -30,10 +37,14 @@ final class MainViewController: UIViewController, Bindable {
         return view
     }()
     
-    private let emailTextField: UITextField = {
-        return UITextField().textField(withPlaceholder: "Email",
-                                       isSecureTextEntry: false,
-                                       withKeyboardType: .emailAddress)
+    private lazy var emailTextField: UITextField = {
+        let tf = UITextField().textField(withPlaceholder: "Email",
+                                         withKeyboardType: .emailAddress)
+        tf.textPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.email, on: input)
+            .store(in: &bindings)
+        return tf
     }()
     
     private lazy var passwordContainerView: UIView = {
@@ -42,9 +53,14 @@ final class MainViewController: UIViewController, Bindable {
         return view
     }()
     
-    private let passwordTextField: UITextField = {
-        return UITextField().textField(withPlaceholder: "Password",
-                                       isSecureTextEntry: true)
+    private lazy var passwordTextField: UITextField = {
+        let tf =  UITextField().textField(withPlaceholder: "Password",
+                                          isSecureTextEntry: true)
+        tf.textPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.password, on: input)
+            .store(in: &bindings)
+        return tf
     }()
     
     private lazy var StackForm: UIStackView = {
@@ -81,7 +97,11 @@ final class MainViewController: UIViewController, Bindable {
     
     // MARK: - Bind ViewModel
     
-    func bindViewModel() {}
+    func bindViewModel() {
+        let input = MainViewModel.Input()
+        output = viewModel.transform(input, cancelBag: cancelBag)
+        self.input = input
+    }
     
     
     // MARK: - Lifecycle
@@ -90,6 +110,7 @@ final class MainViewController: UIViewController, Bindable {
         super.viewDidLoad()
         
         setupUI()
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -107,7 +128,8 @@ extension MainViewController {
     }
     
     @objc func handleShowSignIn() {
-        
+        print("handle sign in")
+        logginTrigger.send(())
     }
 }
 

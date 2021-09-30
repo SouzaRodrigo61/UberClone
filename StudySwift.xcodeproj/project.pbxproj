@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006F73E42705304B00715F88 /* ShowingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F73E32705304B00715F88 /* ShowingMain.swift */; };
+		006F73E62706001700715F88 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F73E52706001700715F88 /* ViewModel.swift */; };
+		006F73E82706004000715F88 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F73E72706004000715F88 /* CancelBag.swift */; };
+		006F73EB2706054800715F88 /* UITextField+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F73EA2706054800715F88 /* UITextField+Publisher.swift */; };
 		5B62E26426FFCB7E00216DEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E26326FFCB7E00216DEC /* AppDelegate.swift */; };
 		5B62E26626FFCB7E00216DEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E26526FFCB7E00216DEC /* SceneDelegate.swift */; };
 		5B62E26D26FFCB8100216DEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B62E26C26FFCB8100216DEC /* Assets.xcassets */; };
@@ -21,14 +25,6 @@
 		5BEE5A89270257C00098E275 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A88270257C00098E275 /* Factory.swift */; };
 		5BEE5A8B270258860098E275 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A8A270258860098E275 /* MainViewController.swift */; };
 		5BEE5A8E2702598C0098E275 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A8D2702598C0098E275 /* Bindable.swift */; };
-		5BEE5A91270269D90098E275 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A90270269D90098E275 /* Driver.swift */; };
-		5BEE5A93270269EE0098E275 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A92270269EE0098E275 /* Observable.swift */; };
-		5BEE5A96270342ED0098E275 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A95270342ED0098E275 /* Publisher+.swift */; };
-		5BEE5A982703430F0098E275 /* GenericSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A972703430F0098E275 /* GenericSubscriber.swift */; };
-		5BEE5A9A2703439F0098E275 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A992703439F0098E275 /* CancelBag.swift */; };
-		5BEE5A9C270343C00098E275 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A9B270343C00098E275 /* ViewModel.swift */; };
-		5BEE5A9E270343FF0098E275 /* ActivityTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A9D270343FF0098E275 /* ActivityTracker.swift */; };
-		5BEE5AA0270344C10098E275 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5A9F270344C10098E275 /* ErrorTracker.swift */; };
 		5BEE5AA5270380CD0098E275 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5AA4270380CD0098E275 /* Font.swift */; };
 		5BEE5AA82703844E0098E275 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5AA72703844E0098E275 /* UIView+extension.swift */; };
 		5BEE5AAB270389620098E275 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE5AAA270389620098E275 /* UIColor+extensions.swift */; };
@@ -53,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006F73E32705304B00715F88 /* ShowingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingMain.swift; sourceTree = "<group>"; };
+		006F73E52706001700715F88 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		006F73E72706004000715F88 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
+		006F73EA2706054800715F88 /* UITextField+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Publisher.swift"; sourceTree = "<group>"; };
 		5B62E26026FFCB7E00216DEC /* StudySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B62E26326FFCB7E00216DEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B62E26526FFCB7E00216DEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,14 +71,6 @@
 		5BEE5A88270257C00098E275 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		5BEE5A8A270258860098E275 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5BEE5A8D2702598C0098E275 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		5BEE5A90270269D90098E275 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
-		5BEE5A92270269EE0098E275 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		5BEE5A95270342ED0098E275 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
-		5BEE5A972703430F0098E275 /* GenericSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSubscriber.swift; sourceTree = "<group>"; };
-		5BEE5A992703439F0098E275 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
-		5BEE5A9B270343C00098E275 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		5BEE5A9D270343FF0098E275 /* ActivityTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTracker.swift; sourceTree = "<group>"; };
-		5BEE5A9F270344C10098E275 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		5BEE5AA4270380CD0098E275 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5BEE5AA72703844E0098E275 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5BEE5AAA270389620098E275 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
@@ -110,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		006F73E227052EF200715F88 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				006F73E32705304B00715F88 /* ShowingMain.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		006F73E92706053F00715F88 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				006F73EA2706054800715F88 /* UITextField+Publisher.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
 		5B62E25726FFCB7E00216DEC = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +144,7 @@
 				5BEE5AA2270380B40098E275 /* UI */,
 				5BEE5AA1270378BE0098E275 /* Suport */,
 				5BEE5A86270257A00098E275 /* Core */,
+				006F73E227052EF200715F88 /* Navigation */,
 				5B62E29826FFE54300216DEC /* Features */,
 				5B62E26326FFCB7E00216DEC /* AppDelegate.swift */,
 				5B62E26526FFCB7E00216DEC /* SceneDelegate.swift */,
@@ -186,6 +195,7 @@
 		5BEE5A86270257A00098E275 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				006F73E92706053F00715F88 /* Combine */,
 				5BEE5A87270257A70098E275 /* Factory */,
 			);
 			path = Core;
@@ -203,30 +213,16 @@
 			isa = PBXGroup;
 			children = (
 				5BEE5A8D2702598C0098E275 /* Bindable.swift */,
+				006F73E52706001700715F88 /* ViewModel.swift */,
 			);
 			path = Bind;
-			sourceTree = "<group>";
-		};
-		5BEE5A8F270263060098E275 /* Reactive */ = {
-			isa = PBXGroup;
-			children = (
-				5BEE5A90270269D90098E275 /* Driver.swift */,
-				5BEE5A92270269EE0098E275 /* Observable.swift */,
-				5BEE5A95270342ED0098E275 /* Publisher+.swift */,
-				5BEE5A972703430F0098E275 /* GenericSubscriber.swift */,
-				5BEE5A992703439F0098E275 /* CancelBag.swift */,
-				5BEE5A9B270343C00098E275 /* ViewModel.swift */,
-				5BEE5A9D270343FF0098E275 /* ActivityTracker.swift */,
-				5BEE5A9F270344C10098E275 /* ErrorTracker.swift */,
-			);
-			path = Reactive;
 			sourceTree = "<group>";
 		};
 		5BEE5AA1270378BE0098E275 /* Suport */ = {
 			isa = PBXGroup;
 			children = (
-				5BEE5A8F270263060098E275 /* Reactive */,
 				5BEE5A8C2702597A0098E275 /* Bind */,
+				006F73E72706004000715F88 /* CancelBag.swift */,
 			);
 			path = Suport;
 			sourceTree = "<group>";
@@ -404,25 +400,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BEE5A93270269EE0098E275 /* Observable.swift in Sources */,
 				5B62E26426FFCB7E00216DEC /* AppDelegate.swift in Sources */,
 				5BEE5A8E2702598C0098E275 /* Bindable.swift in Sources */,
+				006F73EB2706054800715F88 /* UITextField+Publisher.swift in Sources */,
 				5BEE5A89270257C00098E275 /* Factory.swift in Sources */,
-				5BEE5A982703430F0098E275 /* GenericSubscriber.swift in Sources */,
 				5BEE5A8B270258860098E275 /* MainViewController.swift in Sources */,
-				5BEE5AA0270344C10098E275 /* ErrorTracker.swift in Sources */,
 				5BEE5AAB270389620098E275 /* UIColor+extensions.swift in Sources */,
 				5BEE5A81270256E20098E275 /* MainUseCase.swift in Sources */,
-				5BEE5A91270269D90098E275 /* Driver.swift in Sources */,
 				5BEE5A7F2702566D0098E275 /* MainFactory.swift in Sources */,
-				5BEE5A9E270343FF0098E275 /* ActivityTracker.swift in Sources */,
-				5BEE5A96270342ED0098E275 /* Publisher+.swift in Sources */,
-				5BEE5A9C270343C00098E275 /* ViewModel.swift in Sources */,
+				006F73E42705304B00715F88 /* ShowingMain.swift in Sources */,
 				5B62E26626FFCB7E00216DEC /* SceneDelegate.swift in Sources */,
 				5BEE5AA5270380CD0098E275 /* Font.swift in Sources */,
+				006F73E82706004000715F88 /* CancelBag.swift in Sources */,
+				006F73E62706001700715F88 /* ViewModel.swift in Sources */,
 				5BEE5AA82703844E0098E275 /* UIView+extension.swift in Sources */,
 				5BEE5A852702574A0098E275 /* MainNavigator.swift in Sources */,
-				5BEE5A9A2703439F0098E275 /* CancelBag.swift in Sources */,
 				5BEE5AAE27039CC80098E275 /* UITextField+extension.swift in Sources */,
 				5BEE5A83270257000098E275 /* MainViewModel.swift in Sources */,
 			);

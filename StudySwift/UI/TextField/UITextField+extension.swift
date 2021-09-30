@@ -9,7 +9,7 @@ import UIKit
 
 extension UITextField {
     
-    func textField(withPlaceholder placeholder: String, isSecureTextEntry: Bool, withKeyboardType keyboardType: UIKeyboardType = .default) -> UITextField {
+    func textField(withPlaceholder placeholder: String, isSecureTextEntry: Bool = false, withKeyboardType keyboardType: UIKeyboardType = .default) -> UITextField {
         let tf = UITextField()
         tf.borderStyle = .none
         tf.font = UIFont.systemFont(ofSize: 16)
