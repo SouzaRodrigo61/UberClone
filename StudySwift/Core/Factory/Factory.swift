@@ -8,7 +8,8 @@
 import Foundation
 
 protocol Factory: AnyObject,
-                  MainFactory {
+                  MainFactory,
+                  AuthFactory {
     
 }
 

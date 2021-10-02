@@ -9,10 +9,17 @@ import Foundation
 import UIKit
 
 protocol MainNavigatorType {
+    func toSignUp()
 }
 
-struct MainNavigator: MainNavigatorType {
+struct MainNavigator: MainNavigatorType, ShowingSignUp {
+
+    
     unowned let factory: Factory
     unowned let navigationController: UINavigationController
+    
+    func toSignUp() {
+        showSignUp()
+    }
     
 }

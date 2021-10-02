@@ -12,7 +12,10 @@ final class MainViewController: UIViewController, Bindable {
     
     // MARK: - Variables
     var viewModel: MainViewModel!
-    private let logginTrigger = PassthroughSubject<Void, Never>()
+    
+    private let loginTrigger = PassthroughSubject<Void, Never>()
+    private let signUpTrigger = PassthroughSubject<Void, Never>()
+    private let loginNavTrigger = PassthroughSubject<Void, Never>()
     
     private var input: MainViewModel.Input!
     private var output: MainViewModel.Output!
@@ -40,10 +43,6 @@ final class MainViewController: UIViewController, Bindable {
     private lazy var emailTextField: UITextField = {
         let tf = UITextField().textField(withPlaceholder: "Email",
                                          withKeyboardType: .emailAddress)
-        tf.textPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.email, on: input)
-            .store(in: &bindings)
         return tf
     }()
     
@@ -56,10 +55,6 @@ final class MainViewController: UIViewController, Bindable {
     private lazy var passwordTextField: UITextField = {
         let tf =  UITextField().textField(withPlaceholder: "Password",
                                           isSecureTextEntry: true)
-        tf.textPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.password, on: input)
-            .store(in: &bindings)
         return tf
     }()
     
@@ -98,9 +93,60 @@ final class MainViewController: UIViewController, Bindable {
     // MARK: - Bind ViewModel
     
     func bindViewModel() {
-        let input = MainViewModel.Input()
+        let input = MainViewModel.Input(loginTrigger: loginTrigger.asDriver(),
+                                        signUpTrigger: signUpTrigger.asDriver(),
+                                        loginNavTrigger: loginNavTrigger.asDriver())
         output = viewModel.transform(input, cancelBag: cancelBag)
         self.input = input
+        
+        emailTextField.textPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.email, on: input)
+            .store(in: cancelBag)
+        
+        passwordTextField.textPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.password, on: input)
+            .store(in: cancelBag)
+        
+        output.$isLoginEnabled
+            .sink { isLoginEnabled in
+                self.loginButton.isEnabled = isLoginEnabled
+            }
+            .store(in: cancelBag)
+        
+        
+        
+        output.$alert
+            .sink { alertOutput in
+                let alert = UIAlertController(title: alertOutput.title,
+                                              message: alertOutput.message,
+                                              preferredStyle: .alert)
+                
+                DispatchQueue.main.async {
+                    if alertOutput.isShowing == true {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                
+                let deadlineTime = DispatchTime.now() + .seconds(2)
+                
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    alert.dismiss(animated: true, completion: nil)
+                    
+                    if alertOutput.isShowing == true {
+                        self.output.$isSuccess
+                            .sink { isSuccess in
+                                if isSuccess == true {
+                                    self.loginNavTrigger.send(())
+                                }
+                            }
+                            .store(in: self.cancelBag)
+                    }
+                }
+                
+            }
+            .store(in: cancelBag)
     }
     
     
@@ -124,12 +170,11 @@ final class MainViewController: UIViewController, Bindable {
 extension MainViewController {
     
     @objc func handleShowSignUp() {
-        
+        self.signUpTrigger.send(())
     }
     
     @objc func handleShowSignIn() {
-        print("handle sign in")
-        logginTrigger.send(())
+        self.loginTrigger.send(())
     }
 }
 
@@ -164,7 +209,6 @@ extension MainViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
-        
         
     }
 }

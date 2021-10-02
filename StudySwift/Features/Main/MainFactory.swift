@@ -38,6 +38,6 @@ extension MainFactory where Self: DefaultFactory {
     }
     
     func resolve() -> MainUseCaseType {
-        return MainUseCase()
+        return MainUseCase(authGateway: resolve())
     }
 }
